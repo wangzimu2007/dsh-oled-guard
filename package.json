@@ -1,0 +1,47 @@
+{
+  "name": "dsh-oled-guard",
+  "version": "1.0.0",
+  "description": "Auto-hide the DSH composer when idle and reveal it near the bottom edge — OLED burn-in protection for DeepSeek Harness.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "oled",
+    "burn-in",
+    "composer",
+    "ui"
+  ],
+  "author": "dsh-oled-guard contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangzimu2007/dsh-oled-guard.git"
+  },
+  "homepage": "https://github.com/wangzimu2007/dsh-oled-guard#readme",
+  "bugs": {
+    "url": "https://github.com/wangzimu2007/dsh-oled-guard/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}
