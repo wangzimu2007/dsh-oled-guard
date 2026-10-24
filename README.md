@@ -100,7 +100,7 @@ localStorage.setItem("dsh-oled-guard-exclude", JSON.stringify([".keep-visible"])
 - 在 DSH desktop **44.7.0**（runtime **0.2.1-rc.2**）上验证通过
 - DSH 更新后 DOM 钩子可能变化；届时插件会自动放行（fail-open），不会破坏界面
 - 纯本地、无网络请求、无遥测
-- 只影响 DSH 输入区，不改变消息内容区的渲染
+- 只影响 DSH 输入区和固定浮层，不改变消息内容区的渲染
 
 ## 目录结构
 
