@@ -1,7 +1,7 @@
 {
   "name": "dsh-oled-guard",
-  "version": "1.0.0",
-  "description": "Auto-hide the DSH composer when idle and reveal it near the bottom edge — OLED burn-in protection for DeepSeek Harness.",
+  "version": "1.2.0",
+  "description": "Auto-hide the DSH composer and fixed UI overlays when idle, with customizable hotkeys and an in-app settings panel — OLED burn-in protection for DeepSeek Harness.",
   "license": "MIT",
   "type": "module",
   "main": "./lib/index.js",
@@ -15,6 +15,7 @@
     "lib/client.js",
     "cordis.patch.yml",
     "README.md",
+    "docs/使用指南.md",
     "LICENSE"
   ],
   "keywords": [
@@ -24,6 +25,8 @@
     "oled",
     "burn-in",
     "composer",
+    "overlay",
+    "sidebar",
     "ui"
   ],
   "author": "dsh-oled-guard contributors",
