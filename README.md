@@ -12,7 +12,15 @@
 - 鼠标移到窗口**底部约 96px** 内，输入区自动升起
 - 点进输入框、正在输入、或模型选择菜单打开时，不会隐藏
 - 新建会话时居中的输入框（hero 输入框）保持原样
-- **其他固定/粘性 UI**（侧边栏、顶栏、用量环、徽章、通知等）也在闲置时淡出，鼠标一动就恢复
+- **其他固定/粘性 UI**（顶栏、用量环、徽章、通知等）也在闲置时淡出，鼠标一动就恢复
+- **DSH 左侧栏**（`BynINW_sidebarCol`）闲置时淡出，鼠标一动恢复
+- **DSH 右侧栏/右面板**（`BynINW_rightbarCol` / `OUqwTW_panel`）同样闲置淡出
+- **会话顶栏**（模型/团队/模式 + 右侧图标）和 **阅读/对话/轨迹/上下文/编队标签**（`.Dc7zOa_header` / `[data-conversation-tabs]`）闲置淡出
+- **Electron 原生菜单栏**（左上角“应用/编辑”）从窗口移除，避免闪烁；不再占像素
+- **Ctrl+Alt+F11**：切换 DSH 窗口全屏；全屏后窗口标题栏和 `— □ ×` 消失，适合 OLED 防烧屏
+- **向下折叠箭头、右侧 outline/timeline/scrollbar 轨道**：随空闲 UI 一起淡出，鼠标移动恢复
+- **鼠标指针**：静止 10 秒后隐藏，移动、点击、滚轮或按键立即恢复
+- 浮层扫描只处理 `position: fixed`，并排除代码块/正文/消息内容，避免代码块顶部细横条闪烁
 - **Alt+Shift+O**：临时开关全部保护（状态保存在 localStorage）
 - **Alt+Shift+P**：只开关“固定浮层保护”，输入框/鲸鱼逻辑不受影响
 
@@ -59,7 +67,7 @@ dsh plugin add "link:$(pwd)/dsh-oled-guard"
 
 ## 工作原理
 
-插件是纯客户端插件，不改 DSH 源码，只依赖 DSH 客户端里稳定的 DOM 钩子：
+插件是“客户端半边 + 很小的宿主半边”，不改 DSH 源码：
 
 | 钩子/机制 | 用途 |
 |---|---|
@@ -67,7 +75,12 @@ dsh plugin add "link:$(pwd)/dsh-oled-guard"
 | `[data-composer-input]` | 可编辑输入框（用于判断焦点） |
 | `[role="menu"]` | 菜单打开时暂停隐藏 |
 | `.dshwv-root` | 右下角鲸鱼组件 |
+| `.BynINW_sidebarCol` | DSH 左侧栏（AppFrame 的 sidebar 列） |
+| `.BynINW_rightbarCol` / `.OUqwTW_panel` | DSH 右侧栏/右面板 |
+| `.Dc7zOa_header` / `header[data-window-drag]` | 会话顶栏（模型/团队/模式和右侧图标） |
+| `[data-conversation-tabs]` | 会话标签行（阅读/对话/轨迹/上下文/编队） |
 | 运行时扫描 `position: fixed / sticky` | 其他固定 UI 浮层（面积小于视口 60%，全屏背景/遮罩不处理） |
+| Electron `removeMenu` / `setMenuBarVisibility` | 左上角原生菜单栏移除（宿主半边） |
 
 通过 `getBoundingClientRect()` 区分"底部停靠"和"新建会话居中"两种布局；居中时不隐藏。
 
