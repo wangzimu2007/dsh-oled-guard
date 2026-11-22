@@ -1,50 +1,50 @@
 {
-  "name": "dsh-oled-guard",
-  "version": "1.2.0",
-  "description": "Auto-hide the DSH composer and fixed UI overlays when idle, with customizable hotkeys and an in-app settings panel — OLED burn-in protection for DeepSeek Harness.",
-  "license": "MIT",
-  "type": "module",
-  "main": "./lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./client": "./lib/client.js",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "lib/index.js",
-    "lib/client.js",
-    "cordis.patch.yml",
-    "README.md",
-    "docs/使用指南.md",
-    "LICENSE"
-  ],
-  "keywords": [
-    "dsh",
-    "dsh-plugin",
-    "deepseek-harness",
-    "oled",
-    "burn-in",
-    "composer",
-    "overlay",
-    "sidebar",
-    "ui"
-  ],
-  "author": "dsh-oled-guard contributors",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wangzimu2007/dsh-oled-guard.git"
-  },
-  "homepage": "https://github.com/wangzimu2007/dsh-oled-guard#readme",
-  "bugs": {
-    "url": "https://github.com/wangzimu2007/dsh-oled-guard/issues"
-  },
-  "dsh": {
-    "bundle": {
-      "patch": "./cordis.patch.yml"
-    },
-    "client": {
-      "platform": "web",
-      "immediately": true
-    }
-  }
+    "name":  "dsh-oled-guard",
+    "version":  "1.2.1",
+    "description":  "Auto-hide the DSH composer and fixed UI overlays when idle, with customizable hotkeys and an in-app settings panel — OLED burn-in protection for DeepSeek Harness.",
+    "license":  "MIT",
+    "type":  "module",
+    "main":  "./lib/index.js",
+    "exports":  {
+                    ".":  "./lib/index.js",
+                    "./client":  "./lib/client.js",
+                    "./package.json":  "./package.json"
+                },
+    "files":  [
+                  "lib/index.js",
+                  "lib/client.js",
+                  "cordis.patch.yml",
+                  "README.md",
+                  "docs/使用指南.md",
+                  "LICENSE"
+              ],
+    "keywords":  [
+                     "dsh",
+                     "dsh-plugin",
+                     "deepseek-harness",
+                     "oled",
+                     "burn-in",
+                     "composer",
+                     "overlay",
+                     "sidebar",
+                     "ui"
+                 ],
+    "author":  "dsh-oled-guard contributors",
+    "repository":  {
+                       "type":  "git",
+                       "url":  "https://github.com/wangzimu2007/dsh-oled-guard.git"
+                   },
+    "homepage":  "https://github.com/wangzimu2007/dsh-oled-guard#readme",
+    "bugs":  {
+                 "url":  "https://github.com/wangzimu2007/dsh-oled-guard/issues"
+             },
+    "dsh":  {
+                "bundle":  {
+                               "patch":  "./cordis.patch.yml"
+                           },
+                "client":  {
+                               "platform":  "web",
+                               "immediately":  true
+                           }
+            }
 }
